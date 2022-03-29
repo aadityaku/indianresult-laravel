@@ -1,0 +1,7 @@
+1. user
+  id,name,email,password,userType(n)
+
+  note: usertype:1=school,0=admin
+
+2.student
+   
