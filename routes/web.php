@@ -30,7 +30,8 @@ Route::prefix("school")->group(function(){
     // Route::get("/",function(){
     //     return view("school/home");
     // });
-    Route::get("/",[SchoolController::class,"home"])->name('school.dashboard');
+    Route::get("/",[SchoolController::class,"home"])->name('school.dashboard')->middleware("schoolAuth");
+    Route::match(["post","get"],"/insertResult",[SchoolController::class,"insertResult"])->name("school.insertResult")->middleware("schoolAuth");
     Route::get("/login",[SchoolController::class,"login"]);
     Route::post("/login",[AuthController::class,"schoolLogin"])->name("school.login");
     Route::get("/logout",[AuthController::class,"schoolLogout"])->name("school.logout");

@@ -10,7 +10,7 @@ class AuthController extends Controller
     public function schoolLogin(Request $request){
           $email = $request->email;
           $password=$request->password;
-          $user = User::where("email",$email)->first();
+          $user = User::where([["email",$email],["userType",1]])->first();
           if($user){
               
               if(Hash::check($password,$user->password)){

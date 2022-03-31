@@ -9,7 +9,7 @@
                        <a href="" class="btn btn-danger w-100 btn-lg py-4 shadow">View Students</a>
                    </div>
                    <div class="col-4 mb-2">
-                       <a href="" class="btn btn-warning w-100 btn-lg py-4 shadow">Insert Results</a>
+                       <a href="{{ route('school.insertResult') }}" class="btn btn-warning w-100 btn-lg py-4 shadow">Insert Results</a>
                    </div>
                    <div class="col-4 mb-2">
                        <a href="" class="btn btn-success w-100 btn-lg py-4 shadow">Download Results</a>

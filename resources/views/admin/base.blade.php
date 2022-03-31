@@ -13,7 +13,12 @@
             <a href="" class="navbar-brand">IndianResult</a>
             <ul class="navbar-nav">
                 <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <input type="submit" name="sumbmit" value="Logout" class="btn btn-danger">
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>

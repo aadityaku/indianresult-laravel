@@ -20,6 +20,7 @@ class SchoolController extends Controller
 
     public function home(){
         $data=["schools"=>School::all()];
+        
        return view("school/home",$data);
     }
 
@@ -32,6 +33,14 @@ class SchoolController extends Controller
         return view("admin/insertSchool");
     }
 
+
+    public function insertResult(Request $request){
+
+        if($request->method() == "POST"){
+           
+        }
+        return view("school/insertResult");
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -58,7 +67,8 @@ class SchoolController extends Controller
         $account->email=$request->email;
         $account->password=Hash::make($request->password);
         $account->userType=1;
-        $userId=$account->save();
+        $account->save();
+        $userId=$account->id;
         
         $school=new School();
         $school->schoolName=$request->schoolName;
@@ -70,6 +80,7 @@ class SchoolController extends Controller
         $school->est_year=$request->est_year;
         $school->user_id=$userId;
         $school->save();
+
         return redirect()->back();
     }
 
