@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Admin Route
-Route::prefix("admin")->group(function(){
+Route::prefix("admin")->middleware("auth")->group(function(){
      Route::get("/",[AdminController::class,"index"])->name("admin.dashboard");
      Route::resource("school",SchoolController::class);
      Route::resource("student",App\Http\Controllers\StudentController::class);

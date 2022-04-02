@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row mt-2">
-           <div class="col-9">
+           <div class="col-9 mx-auto">
                <div class="card">
                    <div class="card-body">
                        <h5>Insert Results</h5>
@@ -66,30 +66,7 @@
                    </div>
                </div>
             </div>
-            <div class="col-3">
-                <table class="table">
-                    <tr>
-                        <th>School Name</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>School Code</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>Reg No</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>Est Year</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>Address</th>
-                        <td></td>
-                    </tr>
-                </table>
-            </div> 
+            
         </div>
     </div>
 @endsection

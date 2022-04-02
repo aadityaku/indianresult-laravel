@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
-use App\Models\School;
+
+use App\Http\Middleware\SchoolAuth;
+
+use App\Models\{School,User,Student};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class SchoolController extends Controller
@@ -18,8 +20,10 @@ class SchoolController extends Controller
        return view("admin/manageSchools",$data);
     }
 
-    public function home(){
-        $data=["schools"=>School::all()];
+    public function home(Request $request){
+       $user=User::where("email",session("user"))->first();
+        
+        $data["school"]=School::with("username")->where("user_id",$user->id)->first();
         
        return view("school/home",$data);
     }
@@ -35,9 +39,36 @@ class SchoolController extends Controller
 
 
     public function insertResult(Request $request){
-
+        $user=User::where("email",session("user"))->first();
+        $school=School::where("user_id",$user->id)->first();
         if($request->method() == "POST"){
-           
+           $request->validate([
+               "name"=>"required",
+               "rollNo"=>"required",
+               "reg_no"=>"required",
+               "fatherName"=>"required",
+               "motherName"=>"required",
+               "maths"=>"required",
+               "sci"=>"required",
+               "sst"=>"required",
+               "hindi"=>"required",
+               "eng"=>"required",
+           ]);
+           $result=new Student();
+           $result->name=$request->name;
+           $result->rollNo=$request->rollNo;
+           $result->reg_no=$request->reg_no;
+           $result->fatherName=$request->fatherName;
+           $result->motherName=$request->motherName;
+           $result->maths=$request->maths;
+           $result->sci=$request->sci;
+           $result->sst=$request->sst;
+           $result->hindi=$request->hindi;
+           $result->eng=$request->eng;
+           $result->school_id=$school->id;
+           $result->save();
+
+           return redirect()->route("school.dashboard");
         }
         return view("school/insertResult");
     }

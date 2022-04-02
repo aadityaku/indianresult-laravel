@@ -11,6 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    function school(){
+        return $this->belongsTo(School::class,"user_id","id");
+    }
 
     /**
      * The attributes that are mass assignable.

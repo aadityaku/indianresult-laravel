@@ -30,25 +30,27 @@
             </div>
             <div class="col-3">
                 <table class="table">
+                   
                     <tr>
                         <th>School Name</th>
-                        <td></td>
+                        <td>{{$school->schoolName}}</td>
                     </tr>
+                  
                     <tr>
                         <th>School Code</th>
-                        <td></td>
+                        <td>{{$school->schoolCode}}</td>
                     </tr>
                     <tr>
                         <th>Reg No</th>
-                        <td></td>
+                        <td>{{$school->schoolRegNo}}</td>
                     </tr>
                     <tr>
                         <th>Est Year</th>
-                        <td></td>
+                        <td>{{$school->est_year}}</td>
                     </tr>
                     <tr>
                         <th>Address</th>
-                        <td></td>
+                        <td>{{$school->address}},{{$school->city}},{{$school->state}}</td>
                     </tr>
                 </table>
             </div> 

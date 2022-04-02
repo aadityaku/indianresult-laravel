@@ -39,7 +39,7 @@
                      <div class="dropdown-menu">
                          <a href="{{ route('student.index') }}" class="dropdown-item">Manage All Results</a>
                          <a href="" class="dropdown-item">Reports</a>
-                     </div>
+                     </div> 
                 </li>
                 <li class="nav-item"><a href="" class="nav-link text-white">Reports</a></li>
                 <li class="nav-item"><a href="" class="nav-link text-white">Settings</a></li>
